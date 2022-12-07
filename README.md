@@ -1,60 +1,29 @@
-# Sample Project for adding a React and Patternfly GUI to Quarkus 
-
-This project uses Quarkus, the Supersonic Subatomic Java Framework and has a React project embedded in the /src/main/webapp folder.  The React assets are compiled implicitly during the maven build.  
-
-If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
-If you want to learn more about Patternfly , please visit its website: https://www.patternfly.org/v4/ .
-
-## Running the application in dev mode
+## Trabalho da cadeira de Validação e Verificação de Sistemas
 
 Start Quarkus in Dev mode:
 ```shell script
 ./mvnw compile quarkus:dev
 ```
 
-And in a new terminal React in dev mode:
-```shell script
-cd src/main/webapp
-npm start
-```
+## Verificação estática no projeto
+-pom.xml
+-build.yml
+-application.properties
+-Foi necessário criar login em https://sonarcloud.io/ e seguir o passo a passo para integrar um repositório do github com o sonar.
 
-Then you can access the React frontend under http://localhost:3000
+## Testes unitários
+-pom.xml, maven.yml
+-ClienteTest.java, verifica método de classe Cliente.java
 
-## Packaging and running the application
+## Testes de componentes (API)
+-pom.xml, maven.yml
+-ClienteResourceTest.java, verifica body de url's '/clientes', '/clientes/buscaLoja/loja/Loja-geral' e e /clientes/buscaClienteProduto/Beliche
 
-The application can be packaged using:
-```shell script
-./mvnw package
-```
-It produces the `quarkus-run.jar` file in the `target/quarkus-app/` directory.
-Be aware that it’s not an _über-jar_ as the dependencies are copied into the `target/quarkus-app/lib/` directory.
+# Testes de componentes (Mock)
+-pom.xml, maven.yml
+-ClienteResourceMockTest, verifica os métodos de 'login' e 'alteraDadosCliente' da classe ClienteResource.java 
 
-If you want to build an _über-jar_, execute the following command:
-```shell script
-./mvnw package -Dquarkus.package.type=uber-jar
-```
-
-The application is now runnable using `java -jar target/quarkus-app/quarkus-run.jar`.
-
-## Creating a native executable
-
-You can create a native executable using: 
-```shell script
-./mvnw package -Pnative
-```
-
-Or, if you don't have GraalVM installed, you can run the native executable build in a container using: 
-```shell script
-./mvnw package -Pnative -Dquarkus.native.container-build=true
-```
-
-You can then execute your native executable with: `./target/quarkus-gui-react-patternfly-1.0.0-SNAPSHOT-runner`
-
-If you want to learn more about building native executables, please consult https://quarkus.io/guides/maven-tooling.html.
-
-## Related guides
-
-- RESTEasy JSON-B ([guide](https://quarkus.io/guides/rest-json)): JSON-B serialization support for RESTEasy
-- RESTEasy JAX-RS ([guide](https://quarkus.io/guides/rest-json)): REST endpoint framework implementing JAX-RS and more
-
+## Testes de sistema (Cypress)
+-spec.cy.js, npm-publish.yml
+-Testa a chamada chamada da tela url localhost
 
