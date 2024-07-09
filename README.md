@@ -12,7 +12,7 @@ Start Quarkus in Dev mode:
 -Foi necessário criar login em https://sonarcloud.io/ e seguir o passo a passo para integrar um repositório do github com o sonar.
 
 ## Testes unitários
--pom.xml, maven.yml
+- pom.xml, maven.yml
 -ClienteTest.java, verifica método de classe Cliente.java
 
 ## Testes de componentes (API)
